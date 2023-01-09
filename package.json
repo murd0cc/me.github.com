@@ -1,0 +1,25 @@
+{
+  "name": "me.github.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildtw": "tailwindcss -i ./src/input.css -o ./assets/css/style.css",
+    "watchtw": "tailwindcss -i ./src/input.css -o ./assets/css/style.css --watch"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murd0cc/me.github.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/murd0cc/me.github.com/issues"
+  },
+  "homepage": "https://github.com/murd0cc/me.github.com#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
