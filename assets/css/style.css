@@ -698,3 +698,15 @@ video {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
+
+
+
+footer {
+  position: fixed;
+  bottom: 5%;
+
+  /* And if you want the div to be full-width: */
+  left: 0;
+  right: 0;
+}
+
