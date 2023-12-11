@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Grist Data</title>
+
+
+</head>
+<body>
+    <div id="app">
+
+        <!-- <h1>{{name}}</h1> -->
+        <h3>HTML heading</h3>        
+        <p>{{data.Serie}} {{data.Numar}}</p>
+        <p>{{typeof(data)}}</p>
+        <!-- <p>{{data.Achitat}}</p> -->
+        <p>{{data.Client}}</p>
+        <p>{{typeof(data.Client)}}</p>
+
+    </div>
+    
+    <!-- importing scripts -->
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script> <!-- importing GRIST -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- Importing Vue global from CDN -->
+    <script src="grist-getdata.js"></script> <!-- local file - this must be imported AFTER importing VUE -->
+
+</body>
+</html>

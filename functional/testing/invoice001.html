@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Factură</title>
+
+    <!-- Scripts imported from CDN -->
+    <script src="https://docs.getgrist.com/grist-plugin-api.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+
+    <!-- Scripts (Local) -->
+    <script src="factura01.js" defer></script>
+  
+    <!-- Styles (local) -->
+    <link rel="stylesheet" href="invoice001.css">
+
+</head>
+
+
+
+<body>
+    <!-- Content of the page / VUE app -->
+    <div id="app">
+      <div class="invoice-box">
+        <div class="container">
+          <div class="row">
+            <div class="equalHWrap eqWrap top">
+              <div class="equalHW eq center logo-block">
+                <a href=""><img src="https://cdn-icons-png.flaticon.com/512/1982/1982216.png" style="width:100%; max-width:55px;"></a>
+              </div>
+
+              <div class="equalHW eq contact-info-block">
+                <span id="AccountEmail">ionutparaschiv.mail+office@gmail.com</span><br>
+                <span id="AccountPhone"></span>
+                <p id="test"></p>
+                {{mesaj}}
+              </div>
+
+              <div class="equalHW eq title-block">
+                <h2 class="right no-padding" id="InvoiceSumExVat" style="margin:0px;">FACTURA</h2>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:20px;">
+              <div class="equalHWrap eqWrap nomargin-nopadding to-block">
+                <div class="equalHW eq nomargin-nopadding title">
+                  de la
+                </div>
+
+                <div class="equalHW eq nomargin-nopadding title from-block">
+                  catre
+                </div>
+
+                <div class="equalHW eq nomargin-nopadding title info-block">
+                  detalii<span class="right">#<span id="InvoiceNumber"> {{ Numar }}</span></span><br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="equalHWrap eqWrap">
+                  <div class="equalHW eq infoblock from-block">
+                    <span id="AccountName">ETYMOS ARKHITEKTON SRL</span><br>
+                    <span id="AccountProject">AccountOrgNr</span><br>
+                    <span id="AccountAddress">Perilor 26</span><br>
+                    <span id="AccountPostalCode">105300</span>, <span id="AccountCity">Oslo</span><br>
+                    <span id="AccountCountry">Romania</span><br>
+                    <span id="AccountRef">AccountRef</span><br>
+                    <span id="AccountProject">AccountProject</span><br>
+                  </div>
+
+                  <div class="equalHW eq infoblock to-block">
+                    <span id="CustomerName">abruptarhitectura SRL</span><br>
+                    <span id="AccountProject">CustomerOrgNr</span><br>
+                    <span id="CustomerAddress">Perilor 26</span><br>
+                    <span id="CustomerPostalCode">105300</span>, <span id="CustomerCity">Strømmen</span><br>
+                    <span id="CustomerCountry">Romania</span><br>
+                    <span id="CustomerRef">CustomerRef</span><br>
+                    <span id="CustomerRef">CustomerProject</span>
+                  </div>
+
+                  <div class="equalHW eq infoblock info-block">
+                    <span id="">Emisa la</span>: <span class="right" id="CreatedDate">21 Ian 2017</span><br>
+                    <span id="">Termen</span>: <span class="right" id="DueDate">10.10.2017</span><br>
+                    <span id="">Kid</span>: <span class="right" id="KidNumber">0000374334</span><br>
+                    <span id="">Kontonummer:</span>: <span class="right" id="InvoiceBankAccount">1503 44 06941</span><br>
+                    <span id="">Iban</span>: <span class="right" id="InvoiceIban">DE89 3704 0044 0532 0130 00</span>
+                  </div>
+                </div>
+              </div>
+
+              <table class="table">
+                <tr class="titles">
+                  <th>Nume</th>
+                  <th>Numar</th>
+                  <th>UM</th>
+                  <th>Pret unitar</th>
+                  <!-- <th>Reducere</th> -->
+                  <th>TVA</th>
+                  <th>Total</th>
+                </tr>
+
+                <tr class="item" id="ProductList">
+                  <td id="Product"><span id="ProuductName">Releveu<span></span></span></td>
+                  <td><span id="Cantitate">{{Cantitate}}<span></span></span></td>
+                  <td><span id="ProductUnit">buc<span></span></span></td>
+                  <td><span id="ProductUnitPrice">300 lei</span></td>
+                  <!-- <td><span id="ProductDiscount">Rabatt</span></td> -->
+                  <td><span id="ProductTax">20%</span></td>
+                  <td><span id="ProductCost">900 lei</span></td>
+                </tr>
+
+                <tr class="item" id="ProductList">
+                  <td id="Product"><span id="ProuductName">Concept<span></span></span></td>
+                  <td><span id="ProductNumUnits">1<span></span></span></td>
+                  <td><span id="ProductUnit">buc<span></span></span></td>
+                  <td><span id="ProductUnitPrice">300 lei</span></td>
+                  <!-- <td><span id="ProductDiscount">Rabatt</span></td> -->
+                  <td><span id="ProductTax">20%</span></td>
+                  <td><span id="ProductCost">{{Price}} lei</span></td>
+                </tr>
+                <!-- <tr class="item">
+                  <td><span id="ProuductName">Medium Hosting<span></span></span></td>
+                  <td><span id="ProductNumUnits">6<span></span></span></td>
+                  <td><span id="ProductUnit">KG<span></span></span></td>
+                  <td><span id="ProductUnitPrice">300kr</span></td>
+                  <td><span id="ProductDiscount">Rabatt</span></td>
+                  <td><span id="ProductTax">20</span>%</td>
+                  <td><span id="ProductCost">900</span> <span id="InvoiceCurrency">KR</span></td>
+                </tr>
+                <tr class="item">
+                  <td><span id="ProuductName">Soup<span></span></span></td>
+                  <td><span id="ProductNumUnits">6 <span></span></span></td>
+                  <td><span id="ProductUnit">Liter <span></span></span></td>
+                  <td><span id="ProductUnitPrice">300kr</span></td>
+                  <td><span id="ProductDiscount">90%</span></td>
+                  <td><span id="ProductTax">20%</span></td>
+                  <td><span id="ProductCost">900 KR</span></td>
+                </tr> -->
+              </table>
+            </div>
+
+            <div class="row">
+              <div class="equalHWrap eqWrap">
+                <div class="equalHW eq">
+                  <table class="right">
+                    <tr>
+                      <td><span style="display:inline-block;margin-right:10px;"><strong>Total:</strong></span></td>
+                      <td><span id="InvoiceSumExVat">900</span> <span id="InvoiceCurrency2">lei</span></td>
+                    </tr>
+                    
+                    <tr>
+                      <td><span style="display:inline-block;margin-right:10px;"><strong>TVA:</strong></span></td>
+                      <td><span id="InvoceTotalVat">202</span> <span id="InvoiceCurrency1">lei</span><br></td>
+                    </tr>
+
+                    <tr>
+                      <td><span style="display:inline-block;margin-right:10px;"><strong>Total (incl. TVA):</strong></span></td>
+                      <td><span id="ProductCost">{{Total}}</span> <span id="InvoiceCurrency3">lei</span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Print button -->
+    <div class="print">
+      <a href="javascript:window.print()">Print</a>
+    </div>
+      
+    
+
+    <!-- Grist JS starting and requirements -->
+    <script>
+      grist.ready({
+        requiredAccess: 'read table'
+      });
+      grist.onOptions(function(options, interaction) {
+        console.log(interaction.access_level);
+      });
+      grist.onRecord(function(record) {
+        document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
+      });
+    </script>
+
+
+</body>
+</html>

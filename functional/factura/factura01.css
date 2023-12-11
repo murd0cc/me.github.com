@@ -1,0 +1,97 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Set height to 100% for body and html to enable the background image to cover the whole page: */
+
+html, body {
+  /* height: 100%; */
+  width: 210mm;
+  height: 297mm;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #555555;
+    font-family : /* 'League Spartan', */ catamaran, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    /* Alternate way of writing the same properties as above */
+    /* font: normal 16px Arial, Helvetica, sans-serif; */
+    line-height: 1.3em;
+    padding: 1cm;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  width: 21cm; /* nu aici e o problema - nu as vrea sa dau valoare absoluta, insa nu reusesc altfel */
+  justify-content: center;
+}
+
+.mycompany {
+  text-align: left;
+  width: 50%;
+}
+
+.client {
+  text-align: right;
+  width: 50%;
+}
+
+/* Page formatting for printing on A4 */
+
+/* styles for the content and footer */
+
+.page-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 100px; /* height of the bottom element */
+  box-sizing: border-box;
+}
+
+.page-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px; /* height of the bottom element */
+  box-sizing: border-box;
+}
+
+/* styles for A4 printing */
+
+.page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  page-break-after: always;
+}
+
+
+/* Copiate din templateul invoice001.css */
+
+table.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  text-align: left;
+  padding: 0.25em;
+  min-width: 1.5cm;
+}
+.table tr {
+  border-bottom: 1px solid #DDD;
+}
+  
+a:link{
+  text-decoration:none;
+  color: #555555;
+  padding: 0.25em;
+  ;
+}

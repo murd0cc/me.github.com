@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grist Data</title>
+</head>
+
+
+
+<body>
+    <div id="app"> <!-- VUE app starts here --> 
+        <div id="readout" class="status" v-if="status">
+            <template v-if="status === 'waiting'">
+                <p>Waiting for data...</p>
+                <ul>
+                <li v-bind:class="[tableConnected ? 'done' : '']">I need <b>read table</b> access.</li>
+                <li v-bind:class="[haveRows ? 'done' : '']">I need at least one row of data.</li>
+                <li v-bind:class="[rowConnected ? 'done' : '']">I need <b>Select By</b> set.</li>
+                </ul>
+            </template>
+            
+            <template v-else>
+                {{ status }}
+            </template>
+        </div>
+
+        <p id="para_id">waiting for data .. </p>
+        
+    </div> <!-- VUE app ends here --> 
+
+    <!-- CDN - Scripts -->
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <!-- Vue 2 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>  -->
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3.0.5"></script>
+
+    <!-- local Scripts -->
+    <script src="grist-data.js"></script>
+
+
+</body>
+</html>

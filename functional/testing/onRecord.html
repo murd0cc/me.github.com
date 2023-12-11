@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>onRecord</title>
+
+    <!-- A template for showing an invoice in a Custom Widget in Grist. -->
+    <!-- Uses Vue.js, moment, and the Grist Plugin API -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+  </head>
+
+
+  <body>
+    <div id="app">
+
+      <!-- <pre id="readout">Waiting for data...</pre> -->
+
+      <!-- Grist - checking connection to table -->
+      <div class="status" v-if="status">
+        <template v-if="status === 'waiting'">
+          <p>Waiting for data...</p>
+          <ul>
+            <li v-bind:class="[tableConnected ? 'done' : '']">I need <b>read table</b> access.</li>
+            <li v-bind:class="[haveRows ? 'done' : '']">I need at least one row of data.</li>
+            <li v-bind:class="[rowConnected ? 'done' : '']">I need <b>Select By</b> set.</li>
+          </ul>
+        </template>
+
+        <template v-else>
+          {{ status }}
+        </template>
+      </div>
+
+      {{message}}
+      {{Numar}}
+
+    </div>
+
+
+
+    <!-- inline scripting -->
+
+    <!-- Grist JS starting and requirements -->
+    <script>
+      grist.ready({
+        requiredAccess: 'read table'
+      });
+      grist.onOptions(function(options, interaction) {
+        console.log(interaction.access_level);
+      });
+      grist.onRecord(function(record) {
+        document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
+      });
+    </script>
+
+
+    <!-- Vue import -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <script src="app.js"></script>
+
+  </body>
+</html>

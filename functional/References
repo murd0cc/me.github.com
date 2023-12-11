@@ -1,0 +1,48 @@
+{
+    "Achitat": true,
+    "Client": {
+        "Account_Number": "RO15INGB0000999903387978",
+        "Adresa": "str. Belizarie nr. 10, bl. 11/2b, ap. 19, București, Jud. sector 1",
+        "Bank": "ING BANK",
+        "CNP_CUI_CIF_": 21418376,
+        "Nume": "ABRUPT ARHITECTURA SRL",
+        "PJ": true,
+        "Reprezentant": "Cristina Contantin",
+        "id": 1,
+        "inreg_ONRC": "J40/5863/22.03.2007"
+    },
+    "Data": 2021-08-04,
+    "Invoicer": {
+        "City": "Boldesti Scaeni",
+        "Email": "ionutparaschiv.mail@gmail.com",
+        "Name": "ETYMOS ARKHITEKTON SRL",
+        "Phone": "+4 0722571282",
+        "State": "PH",
+        "Street1": "Perilor 26",
+        "Website": "etymos.ro",
+        "Zip": "105300"
+    },
+    "Nota": "conform Codului Fiscal, art. 319 (29) Semnarea și ștampilarea facturilor nu constituie\nelemente obligatorii ale facturii, factura fiind valabilă și în lipsa acestora.\nTermen de plată: 15 zile de la data facturării (scadenţa 19-08-2021).",
+    "Numar": 1,
+    "Serie": "FFA",
+    "Servicii": [
+        {
+            "Cantitate": 1,
+            "Numar_Factura": Facturi[
+                1
+            ],
+            "Pret_Unitar": 2500,
+            "Serviciu": Servicii[
+                2
+            ],
+            "TVA": 0,
+            "TVA_": 0,
+            "Total": 2500,
+            "id": 2
+        }
+    ],
+    "TVA_lei_": 0,
+    "Total": 2500,
+    "Valoare_lei_": 2500,
+    "id": 1
+}

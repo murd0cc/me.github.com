@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="invoice004.css">
+
+  <title>Factura</title>
+</head>
+
+
+<body>
+  <div class="container"><div class="papers">
+    <h2 class="text-right">Invoice</h2>
+  <form>
+    <div class="columns">
+    <div class="column col-6">
+      
+      <!--div class="form-group">
+      <label class="form-label"  for="logo">add logo</label>
+      <input type="file" class="form-input" id="logo" placeholder="add logo">
+    </div-->
+    <div class="form-group">
+      <textarea class="form-input" id="from" class="form-control" rows="2" placeholder="From :"></textarea>
+    </div>
+    <div class="form-group">
+      
+      <textarea id="to" class="form-input" rows="2" placeholder="Bill to:"></textarea>
+    </div>
+   </div>
+    <div class="column col-6">
+      
+      <div class="form-group">
+      <input type="text" id="invno" class="form-input" placeholder="No Invoice">
+    </div>
+      <div class="form-group">
+      <input type="date" id="date" class="form-input" placeholder="Tgl">
+    </div>
+      <div class="form-group">
+      <input type="text" class="form-input" id="term" placeholder="Term">
+    </div>
+    <div class="form-group">
+      
+      <input type="date" class="form-input" id="duedate" placeholder="due date">
+    </div>
+   </div>
+  </div>
+  </form>
+  <div class="columns">
+    <div class=column col-12>
+      <br/>
+      <table class="table">
+        <thead><tr><th>Item</th><th align="right">qty</th><th align="right">Rate</th><th align="right">Amount</th></tr></thead>
+        <tbody><tr><td><div class="form-group">
+      <input type="text" id="invno" class="form-input" placeholder="Managed Vps">
+    </div></td><td align="right"><div class="form-group">
+      <input type="text" id="invno" class="form-input text-right" placeholder="1">
+    </div></td><td align="right"><div class="form-group">
+      <input type="text" id="invno" class="form-input text-right" placeholder="500.000">
+    </div></td><td align="right"><div class="form-group">
+      <input type="text" id="invno" class="form-input text-right" placeholder="500.000">
+    </div></td></tr></tbody>
+        <tfoot><tr><td colspan="2"><button class="btn btn-sm"><i class="icon icon-plus"></i> Add Line Item</button></td><td>Sub Total</td><td align="right"><div class="form-group">
+      <input type="text" id="invno" class="form-input text-right" placeholder="500.000">
+    </div></td></tr><tr><td colspan="2"></td><td>Tax</td><td align="right"><div class="form-group">
+      <input type="text" id="invno" class="form-input text-right" placeholder="0">
+    </div></td></tr><tr><td colspan="2"></td><td>Amount Paid</td><td align="right"><div class="form-group">
+      <input type="text" id="invno" class="form-input text-right" placeholder="500.000">
+    </div></td></tr></tfoot>
+      </table>
+  Note :
+  <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+  </div>
+  </div></div>
+</body>
+</html>
