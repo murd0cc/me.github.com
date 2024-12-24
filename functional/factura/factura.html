@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <link rel="stylesheet" href="factura01.css"> <!-- STYLES - LOCAL -->
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script> <!-- importing GRIST -->
+
+</head>
+
+
+<body >
+    <div class="page-content">
+
+        <section id="factura-info">
+            <h3>FACTURA</h3>
+            <p>Serie <span id="serie">{{factura.Serie}}</span></p>
+            <p>Numar <span id="numar">{{factura.Numar}}</span></p>
+            <p>Data <span id="data">{{factura.Data}}</span></p>
+            <br><hr><br>
+        </section>
+
+        <section id="participanti">
+            <table> <!-- Trebuie reformatat HTML si redenumite informatiile din JSON de input (References) -->
+                <tr class="container">
+                    <th class="mycompany">de la</th>
+                    <th class="client">către</th>
+                </tr>
+                <tr class="container" >
+                    <!-- Datele celui care factureaza -->
+                    <td class="mycompany" id="mycompany">
+                        <p>{{companie.Name}}</p>
+                        <p>{{companie.City}}, {{companie.Street1}}, {{companie.State}}</p>
+                        <p>CUI / CIF: {{companie.CNP_CUI_CIF}}</p>
+                        <p>Nr.Reg.Com: {{companie.inreg_ONRC}}</p>
+                        <p>Cont: {{companie.Cont}} </p>
+                        <p>Bancă: {{companie.Banca}}</p>
+                    </td>
+                    <!-- Datele clientului -->
+                    <td class="client" id="client">
+                        <p id="client-companie">{{client.Denumire}}</p>
+                        <p id="client-adresa">{{client.Adresa}}</p>
+                        <p id="client-cui">{{client.CNP_CUI_CIF_}}</p>
+                        <p id="client-onrc">{{client.inreg_ONRC}}</p>
+                        <p id="client-cont">{{client.Account_Number}}</p>
+                        <p id="client-banca">{{client.Bank}}</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <table class="table">
+            <tr class="titles"> <!-- Table Header -->
+              <th>servicii</th>
+              <th>buc</th>
+              <th>UM</th>
+              <th>pret <!-- unitar --></th>
+              <!-- <th>Reducere</th> -->
+              <th>TVA</th>
+              <th>total</th>
+            </tr>
+
+            <tr v-for="serviciu in servicii" :key="serviciu.rowId" class="item" id="ProductList"> <!-- Table Rows -->
+              <td id="Product"><span id="ProuductName">{{serviciu.Serviciu.Denumire}} - {{Proiect.Nume}}, {{Proiect.Loc}}<span></span></span></td>
+              <td><span id="Quantity">{{serviciu.Cantitate}}<span></span></span></td>
+              <td><span id="ProductUnit">buc<span></span></span></td>
+              <td><span id="ProductUnitPrice">{{serviciu.Pret_Unitar}} lei</span></td>
+              <!-- <td><span id="ProductDiscount">Rabatt</span></td> -->
+              <td><span id="ProductTax">{{serviciu.TVA_*100}}%</span></td>
+              <td><span id="ProductCost">{{Math.round(serviciu.Total)}} lei</span></td>
+            </tr>
+        </table>
+        
+        <br><br>
+        <p
+        style="text-align:right">
+        Total de plată <strong>{{Math.round(factura.Total,1)}} lei</strong></p>
+        <!-- <div>
+            {{factura.Proiect}}
+            {{debug.stringify(bob,null,4)}}
+        </div> -->
+    </div>
+
+    <div class="page-footer">
+        <br><br><br><hr>
+        <small>{{factura.Nota}}</small>
+        <a href="javascript:window.print()">.</a> <!-- Print button -->
+    </div>
+
+    <div>
+        <!-- ONLINE / CDN SCRIPTS -->
+
+        <!-- LOCAL SCRIPTS -->
+        <script src="factura.js"></script> <!-- this must be imported AFTER importing VUE -->
+
+        <!-- ONLINE / CDN STYLES -->
+        <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200&family=League+Spartan:wght@100;200;300&display=swap" rel="stylesheet">
+    </div>
+
+</body>
+</html>
